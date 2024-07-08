@@ -1,0 +1,70 @@
+.csc_blogging_locations-row{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.csc_blogging_locations-info_wrapper{
+    width: 40%; 
+    height: 80%; 
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.csc_blogging_locations-heading{
+    text-align: center;
+    margin-top: 0;
+}
+
+.csc_blogging_locations-flex__square{
+    display:flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+}
+
+.csc_blogging_locations-flex__stat__container{
+    margin-bottom: 2rem;
+    width: 35%; 
+    border-radius: 3px; 
+    background-color: #e3e3e3; 
+    padding: 3rem; 
+    display:flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.csc_blogging_locations-flex__stat__title{
+    font-weight: 500;
+    font-size:1.4rem;
+}
+
+.csc_blogging_locations-flex__stat__data__container{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+}
+
+.csc_blogging_locations-flex__stat__data__container p{
+    font-size: 40px;
+     margin: 0;
+}
+
+.csc_blogging_locations-leaflet_map{
+    border-radius: 3px;
+    width: 47%;
+    height: 40rem;
+}
+
+#csc_blogging_locations-miles, #csc_blogging_locations-km{
+    margin-bottom: 0;
+}
