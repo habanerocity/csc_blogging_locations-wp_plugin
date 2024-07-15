@@ -70,6 +70,12 @@
     margin-bottom: 0;
 }
 
+.flex__col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media (max-width: 1200px) {
     .csc_blogging_locations-flex__stat__container{
         height: 34%; 

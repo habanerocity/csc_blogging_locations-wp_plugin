@@ -54,8 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var locations = <?php echo json_encode($destination_locations); ?>;
     
     locations.forEach(function(location) {
+        var popupContent = '<div class="flex__col">';
+        if (location.thumbnail) {
+            popupContent += '<img src="' + location.thumbnail + '" alt="' + location.title + '" style="width:100px;height:auto;margin-bottom:10px;">';
+        }
+        popupContent += '<a href="' + location.permalink + '" target="_blank"><strong>' + location.title + '</strong></a>';
+        popupContent += '<p>' + location.excerpt + '</p>';
+        popupContent += '<span><i class="fas fa-map-pin"></i>' + ' ' + location.city + ', ' + location.country + '</span>';
+        popupContent += '</div>';
+
         L.marker([location.destination_latitude, location.destination_longitude]).addTo(map)
-            .bindPopup(location.city + ', ' + location.country);
+            .bindPopup(popupContent);
     });
 });
 </script>

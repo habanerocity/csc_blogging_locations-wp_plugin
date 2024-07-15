@@ -168,6 +168,10 @@ if (!class_exists('CSC_Blogging_Locations')) {
                         'destination_longitude' => get_post_meta(get_the_ID(), 'destination_longitude', true),
                         'origin_latitude' => get_post_meta(get_the_ID(), 'origin_latitude', true),
                         'origin_longitude' => get_post_meta(get_the_ID(), 'origin_longitude', true),
+                        'title' => get_the_title(),
+                        'permalink' => get_permalink(),
+                        'thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'),
+                        'excerpt' => get_the_excerpt(),
                     );
                 }
                 wp_reset_postdata();
