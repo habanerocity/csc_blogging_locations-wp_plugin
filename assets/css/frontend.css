@@ -28,6 +28,7 @@
     justify-content: space-between;
     align-items: center; 
     width: 100%;
+    margin-top: 32px;
 }
 
 .csc_blogging_locations-flex__stat__container{
@@ -62,9 +63,88 @@
 .csc_blogging_locations-leaflet_map{
     border-radius: 3px;
     width: 47%;
-    height: 40rem;
+    height: 56rem;
 }
 
 #csc_blogging_locations-miles, #csc_blogging_locations-km{
     margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+    .csc_blogging_locations-flex__stat__container{
+        height: 34%; 
+        padding: 2rem; 
+        margin-bottom: 1rem; 
+    }
+
+    .csc_blogging_locations-flex__stat__data__container p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 767px){
+    .csc_blogging_locations-info_wrapper{
+        margin-top: 48px;  
+    }
+
+    .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{
+        width: 100%;
+    }
+
+    .csc_blogging_locations-flex__square{
+        margin-top: 32px;
+    }
+
+    .csc_blogging_locations-flex__stat__container {
+        height: 39%;
+        width: 42%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .csc_blogging_locations-info_wrapper{
+        width: 80%;
+    }
+
+    .csc_blogging_locations-row{
+        flex-direction: column-reverse;
+    }
+
+    .csc_blogging_locations-leaflet_map{
+        height: 40rem;
+    
+    }
+}
+
+@media (max-width: 436px){
+    .csc_blogging_locations-flex__square{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    #csc_blogging_locations-miles{
+        margin-bottom: 10px;
+    }
+
+    .csc_blogging_locations-flex__stat__container{
+        width: 60%;
+        padding: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    #csc_blogging_locations-km {
+        margin-bottom: 0px;
+    }
+
+    .csc_blogging_locations-flex__stat__data__container p{
+        font-size: 36px;
+    }
+
+    .csc_blogging_locations-info_wrapper{
+        width: 100%;
+    }
+
+    .csc_blogging_locations-heading{
+        text-align: left;
+    }
 }

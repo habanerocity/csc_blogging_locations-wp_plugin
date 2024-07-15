@@ -1,5 +1,4 @@
 <?php 
-// include CSC_BLOGGING_LOCATIONS_PATH . '/functions/functions.php';
 
 $countries = array_unique( array_column( $destination_locations, 'country' ) );
 $cities = array_unique( array_column( $destination_locations, 'city' ) );
