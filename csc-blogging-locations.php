@@ -22,6 +22,12 @@ if (!class_exists('CSC_Blogging_Locations')) {
             new CSC_Blogging_Locations_Meta_Box();
             add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
             add_shortcode('csc_blog_locations_map', array($this, 'render_map_shortcode'));
+
+            require_once( CSC_BLOGGING_LOCATIONS_PATH . 'class.csc-blogging-locations-settings.php' );
+            $CSC_Blogging_Locations_Settings = new CSC_Blogging_Locations_Settings();
+
+            add_action('admin_menu', array($this, 'add_menu'));
+
         }
 
         public function define_constants() {
@@ -56,6 +62,21 @@ if (!class_exists('CSC_Blogging_Locations')) {
             ob_start();
             require_once CSC_BLOGGING_LOCATIONS_PATH . 'views/map-view.php';
             return ob_get_clean();
+        }
+
+        public function add_menu(){
+            add_menu_page(
+                'CSC Blogging Locations Options',
+                'CSC Blogging Locations',
+                'manage_options',
+                'csc-blogging-locations',
+                array($this, 'csc_blogging_locations_settings_page'),
+                'dashicons-location-alt',
+            );
+        }
+
+        public function csc_blogging_locations_settings_page(){
+            require( CSC_BLOGGING_LOCATIONS_PATH . 'views/settings-page.php' );
         }
         
         public function calculate_total_miles_for_all_posts() {
