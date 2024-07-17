@@ -45,7 +45,15 @@ if (!class_exists('CSC_Blogging_Locations')) {
         }
 
         public static function uninstall() {
-            // Uninstall functionality here if needed
+        // Uninstall functionality here if needed
+        delete_option('csc_blogging_locations_options');
+         
+        $meta_keys = ['country', 'city', 'destination_latitude', 'destination_longitude', 'origin_latitude', 'origin_longitude'];
+        
+        foreach ($meta_keys as $meta_key) {
+            global $wpdb;
+            $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key = %s", $meta_key));
+        }
         }
 
         public function enqueue_scripts() {
