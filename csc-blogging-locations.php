@@ -76,7 +76,17 @@ if (!class_exists('CSC_Blogging_Locations')) {
         }
 
         public function csc_blogging_locations_settings_page(){
-            require( CSC_BLOGGING_LOCATIONS_PATH . 'views/settings-page.php' );
+            if( ! current_user_can( 'manage_options' ) ){
+                return;
+            }
+
+            if( isset( $_GET['settings-updated'] ) ){
+                add_settings_error( 'csc_blogging_locations_options', 'csc_blogging_locations_message', 'Settings Saved', 'success' );
+            }
+
+            settings_errors( 'csc_blogging_locations_options' );
+
+            require_once( CSC_BLOGGING_LOCATIONS_PATH . 'views/settings-page.php' );
         }
         
         public function calculate_total_miles_for_all_posts() {

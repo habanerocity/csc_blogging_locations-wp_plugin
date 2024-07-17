@@ -11,13 +11,13 @@
     width: 40%; 
     height: 80%; 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .csc_blogging_locations-heading{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 0;
 }
 
@@ -109,7 +109,7 @@
     }
 
     .csc_blogging_locations-info_wrapper{
-        width: 80%;
+        width: 100%;
     }
 
     .csc_blogging_locations-row{
@@ -133,7 +133,7 @@
     }
 
     .csc_blogging_locations-flex__stat__container{
-        width: 60%;
+        width: 88%;
         padding: 2rem;
         margin-bottom: 1rem;
     }

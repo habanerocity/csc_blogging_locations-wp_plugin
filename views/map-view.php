@@ -6,10 +6,12 @@ $cities = array_unique( array_column( $destination_locations, 'city' ) );
 $distance_travelled_miles = ceil( $this->calculate_total_miles_for_all_posts() );
 $distance_travelled_km = ceil( $this->calculate_total_miles_for_all_posts() * 1.60934 );
 
+$section_title = CSC_blogging_locations_Settings::$options['csc_blogging_locations_title'];
+
 ?>
 <div class="csc_blogging_locations-row">
     <div class="csc_blogging_locations-info_wrapper">
-        <h2 class="csc_blogging_locations-heading">Our Travel Stats So Far</h2>
+        <h2 class="csc_blogging_locations-heading"><?php echo esc_html( $section_title ); ?></h2>
         <div class="csc_blogging_locations-flex__square">
             <div class="csc_blogging_locations-flex__stat__container">
                 <p class="csc_blogging_locations-flex__stat__title">Countries visited</p>

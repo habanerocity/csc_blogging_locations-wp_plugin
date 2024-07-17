@@ -11,7 +11,7 @@ if( ! class_exists( 'CSC_Blogging_Locations_Settings' ) ){
 
         public function admin_init(){
 
-            register_setting( 'csc_blogging_locations_group', 'csc_blogging_locations_options' );
+            register_setting( 'csc_blogging_locations_group', 'csc_blogging_locations_options', array( $this, 'csc_blogging_locations_validate' ) );
 
             add_settings_section(
                 'csc_blogging_locations_main_section',
@@ -40,7 +40,10 @@ if( ! class_exists( 'CSC_Blogging_Locations_Settings' ) ){
                 'Blogging Locations Section Title',
                 array( $this, 'csc_blogging_locations_title_callback' ),
                 'csc_blogging_locations_page2',
-                'csc_blogging_locations_second_section'
+                'csc_blogging_locations_second_section',
+                array(
+                    'label_for' => 'csc_blogging_locations_title'
+                )
             );
         }
 
@@ -50,7 +53,7 @@ if( ! class_exists( 'CSC_Blogging_Locations_Settings' ) ){
             <?php
         }
 
-        public function csc_blogging_locations_title_callback(){
+        public function csc_blogging_locations_title_callback( $args ){
             ?>
                 <input
                 type="text"
@@ -60,8 +63,26 @@ if( ! class_exists( 'CSC_Blogging_Locations_Settings' ) ){
                 >
             <?php
         }
+
+        public function csc_blogging_locations_validate( $input ){
+            $new_input = array();
+
+            foreach( $input as $key => $value ){
+                switch( $key ){
+                    case 'csc_blogging_locations_title':
+                        if( empty( $value ) ){
+                            add_settings_error( 'csc_blogging_locations_options', 'csc_blogging_locations_message', 'The title field cannot be left empty', 'error' );
+                            $value = 'Please enter a title';
+                        }
+                        $new_input[$key] = sanitize_text_field( $value );
+                    break;
+                    default:
+                        $new_input[$key] = sanitize_text_field( $value );
+                    break;
+                }
+            }
+            return $new_input;
+        }
+
     }
 }
-
-
-?>
