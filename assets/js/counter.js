@@ -22,15 +22,21 @@ function animateStats() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              animateStats();
-              observer.unobserve(entry.target);
-          }
-      });
-  }, {threshold: 0.5});
-
-  const statsSection = document.querySelector('.csc_blogging_locations-flex__stat__container');
-  observer.observe(statsSection);
+    const statsSection = document.querySelector('.csc_blogging_locations-flex__stat__container');
+    
+    // Only proceed if statsSection exists on the page
+    if (statsSection) { 
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.5});
+      
+        observer.observe(statsSection);
+    } else {
+        console.log('The stats section does not exist on this page.');
+    }
 });
