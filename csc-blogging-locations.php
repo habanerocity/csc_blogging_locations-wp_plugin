@@ -61,6 +61,13 @@ if (!class_exists('CSC_Blogging_Locations')) {
 
             wp_enqueue_script('csc-blogging-locations-js', CSC_BLOGGING_LOCATIONS_URL . 'assets/js/counter.js', array(), CSC_BLOGGING_LOCATIONS_VERSION, true);
 
+            // Enqueue the map-init script
+            wp_enqueue_script('csc-blogging-locations-map-init', CSC_BLOGGING_LOCATIONS_URL . 'assets/js/map-init.js', array('leaflet-js'), CSC_BLOGGING_LOCATIONS_VERSION, true);
+
+            // Get destination locations and pass them to the script
+            $destination_locations = $this->get_locations_data();
+            wp_localize_script('csc-blogging-locations-map-init', 'mapLocations', $destination_locations);
+
             wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
             wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
         }
