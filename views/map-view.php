@@ -16,28 +16,28 @@ $section_title = CSC_blogging_locations_Settings::$options['csc_blogging_locatio
             <div class="csc_blogging_locations-flex__stat__container">
                 <p class="csc_blogging_locations-flex__stat__title">Countries visited</p>
                 <div class="csc_blogging_locations-flex__stat__data__container">
-                    <p class="csc_blogging_locations-stat" data-target=" <?php echo count($countries); ?>"></p>
+                    <p class="csc_blogging_locations-stat" data-target=" <?php echo esc_attr(count($countries)); ?>"></p>
                     <i class="fas fa-flag"></i>
                 </div>
             </div>
             <div class="csc_blogging_locations-flex__stat__container">
                 <p class="csc_blogging_locations-flex__stat__title">Locations blogged about</p>
                 <div class="csc_blogging_locations-flex__stat__data__container">
-                    <p class="csc_blogging_locations-stat" data-target="<?php echo count($cities); ?>"></p>
+                    <p class="csc_blogging_locations-stat" data-target="<?php echo esc_attr(count($cities)); ?>"></p>
                     <i class="fas fa-map-pin"></i>
                 </div>
             </div>
             <div id="csc_blogging_locations-miles" class="csc_blogging_locations-flex__stat__container">
                 <p class="csc_blogging_locations-flex__stat__title">Miles traveled</p>
                 <div class="csc_blogging_locations-flex__stat__data__container">
-                    <p class="csc_blogging_locations-stat" data-target="<?php echo $distance_travelled_miles; ?>"></p>
+                    <p class="csc_blogging_locations-stat" data-target="<?php echo esc_attr($distance_travelled_miles); ?>"></p>
                     <i class="fas fa-map"></i>
                 </div>
             </div>
             <div id="csc_blogging_locations-km" class="csc_blogging_locations-flex__stat__container">
                 <p class="csc_blogging_locations-flex__stat__title">Kilometers traveled</p>
                 <div class="csc_blogging_locations-flex__stat__data__container">
-                    <p  class="csc_blogging_locations-stat" data-target="<?php echo $distance_travelled_km; ?>"></p>
+                    <p  class="csc_blogging_locations-stat" data-target="<?php echo esc_attr($distance_travelled_km); ?>"></p>
                     <i class="fas fa-map"></i>
                 </div>
             </div>
